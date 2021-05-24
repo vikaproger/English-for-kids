@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English for kids</title>    
+    <link rel="shortcut icon" href="assets/img/favicon.ico">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">    
+</head>
+<body>
+    <header>
+        <div class="menu-icon__wrapper">
+            <div class="menu-icon"></div>
+          </div>
+        <div class="title">
+            <h1>English for kids</h1>
+        </div>
+    </header>
+    
+    <main>
+        <div class="stars__wrapper"></div>
+        <div class="cards__wrapper"></div>
+        <button type="submit" class="btn-start">START GAME</button>
+        <div class="statistics__wrapper">
+            <div class="btn__wrapper">
+                <button class="btn-reset">RESET</button>
+                <button class="btn-diff-words">REPEAT DIFFICULT WORDS</button>
+            </div>
+            <table class="table">
+                <thead>
+                    <th id="1">Category</th>
+                    <th id="2">Word</th>
+                    <th id="3">Translation</th>
+                    <th id="4">Train</th>
+                    <th id="5">Play</th>
+                    <th id="6">Errors</th>
+                    <th id="7">%</th>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </main>
+    <footer>
+        <div class="footer__wrapper">
+            <div class="rs">
+                <div class="rs-logo">
+                    <a href="https://rs.school/js/"></a>
+                </div>
+                
+            </div>
+            <p class="footer__description">by <a href="https://github.com/vikaproger">vikaproger</a> at 2020</p>
+        </div>
+    </footer>
+    <div class="burger-menu">
+        <nav class="burger__nav">
+            <ul class="burger__list">
+                <li class="list__item active"><a href="">Main Page</a></li>
+                <li class="list__item"><a >Action (set A)</a></li>
+                <li class="list__item"><a >Action (set B)</a></li>
+                <li class="list__item"><a >Action (set C)</a></li>
+                <li class="list__item"><a >Animal (set A)</a></li>
+                <li class="list__item"><a >Animal (set B)</a></li>
+                <li class="list__item"><a >Animal (set C)</a></li>
+                <li class="list__item"><a >Clothes</a></li>
+                <li class="list__item"><a >Emotions</a></li>
+                <li class="list__item"><a >Statistics</a></li>
+            </ul>
+        </nav>
+        <div class="burger-menu__overlay"></div>        
+    </div>
+</body>
+<script src="scripts/cards.js"></script>
+<script src="scripts/switch.js"></script>
+<script src="scripts/menu.js"></script>
+<script src="scripts/burger-menu.js"></script>
+<script src="scripts/play.js"></script>
+<script src="scripts/statistics.js"></script>
+
+</html>

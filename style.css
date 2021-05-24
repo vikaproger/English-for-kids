@@ -1,0 +1,503 @@
+
+@font-face {
+    font-family: Sansus Webissimo;
+    src: url('./assets/fonts/8265.ttf')
+}
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 30px;
+}
+.title {
+    width: 430px;
+    background-image: url('./assets/img/logo.png');
+    background-repeat: no-repeat;
+    background-position: left;
+}
+
+.title h1{
+    font-family: Sansus Webissimo;
+    margin: 0;
+    color: green;
+    font-size: 50px;
+    letter-spacing: 1.5px;
+    text-align: right;
+}
+
+.menu-icon__wrapper {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+    cursor: pointer;
+}
+    
+.menu-icon {
+    position: relative;
+    width: 30px;
+    height: 5px;
+    background-color: green;
+}
+
+.menu-icon::before, .menu-icon::after {
+    position: absolute;
+    left: 0;
+    top: -10px;
+    content: '';
+    width: 30px;
+    height: 5px;
+    background-color: green;
+    transition: transform 0.2s ease-in, top 0.2s linear 0.2s;
+}
+
+.menu-icon::after {
+    top: 10px;
+}
+
+.menu-icon.menu-icon-active {
+    background-color: transparent;
+}
+
+.menu-icon.menu-icon-active::before, .menu-icon.menu-icon-active::after {
+    background-color: white;
+    transform: rotate(45deg);
+    top: 0;
+    transition: top 0.2s linear, transform 0.2s ease-in 0.2s;
+}
+
+.menu-icon.menu-icon-active::after {
+    transform: rotate(-45deg);
+}
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 46px;    
+} 
+
+.switch input {
+    display:none;
+}
+  
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:green;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 36px;
+    width: 36px;
+    left: 6px;
+    bottom: 5px;
+    background-color: white;
+    transition: .4s;
+}
+  
+.slider::after {
+    color: white;
+    display: block;
+    content: 'TRAIN';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 65%;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+}
+  
+input:checked + .slider::after {
+    content: 'PLAY';
+    font-family: Arial, sans-serif;
+    left: 40%;
+} 
+
+input:checked + .slider {
+    background-color: orangered;
+}
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px orangered;
+}
+  
+input:checked + .slider:before {
+    transform: translateX(72px);
+}
+  
+.slider.round {
+    border-radius: 35px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.burger__nav {
+    position: fixed;
+    background-color: green;
+    top: 0;
+    z-index: 20;
+    display: flex;
+    flex-flow: column;
+    overflow-y: auto;
+    left: -100%;
+    transition: 0.8s;
+    width: 320px;
+}
+
+.burger-menu-active .burger__nav {
+    left: 0;
+    transition: 0.4s;
+}
+
+.burger-menu__overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+}
+
+.burger__list {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 20px;
+    list-style: none;
+    height: 100vh;    
+}
+
+.list__item a {
+    font-family: Sansus Webissimo;
+    color: white;
+    font-size: 30px;
+    letter-spacing: 1px;
+    font-weight:normal;
+    text-decoration: none;
+}
+
+.list__item.active {
+    text-decoration: underline;
+}
+
+.list__item:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.burger-menu-active .burger-menu__overlay {
+    display: block;
+}
+
+.card-main, .card {
+    position: relative;
+    width: 300px;
+    height: 280px;
+    border-radius: 30px;
+    background: rgb(184,232,20);
+    background: linear-gradient(90deg, rgba(184,232,20,1) 0%, rgba(53,255,34,1) 50%, rgba(0,128,0,1) 100%);
+    transform-style: preserve-3d;
+    transition: .7s linear;
+    cursor: pointer;
+}
+
+.card-game {
+    width: 300px;
+    height: 280px;
+    cursor: pointer;
+    border-radius: 30px;
+    overflow: hidden;
+    transition: .2s;
+}
+
+.front, .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height:100%;
+    backface-visibility: hidden;
+}
+.front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.back {
+    transform: rotateY(-180deg);
+}
+
+.card-main:hover, .card:hover{
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.card-game:hover {
+    box-sizing: border-box;
+    border: 5px solid orangered;
+}
+
+.card-image {
+    width: inherit;
+    border-radius: 30px 30px 0 0 ;
+    border-bottom: 3px solid white;
+    content: url('./assets/img/dance.jpg'); 
+         
+}
+
+.card-word {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; 
+}
+
+.card-word p {
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.cards__wrapper {
+    width:1290px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    display: flex;
+    column-gap: 30px;
+    row-gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.stars__wrapper {
+    align-self: flex-end;
+    height: 50px;
+    margin-right: 50px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.star {
+    float: right;
+    width: 50px;
+    height: 50px;
+}
+  
+  .right {
+    background: url('./assets/img/star-win.svg') 50% center/cover no-repeat;
+  }
+  
+  .error {
+    background: url('./assets/img/star.svg')50% center/cover no-repeat;
+  }
+
+footer {
+    box-sizing: border-box;
+    width: 100%;
+    height: 76px;;
+    border-top: 4px solid green;
+    padding: 0 10%;
+}
+
+.footer__wrapper {
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rs-logo {
+    background: url('./assets/img/rs_school_js.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 50px;
+    padding-top: 25px;
+}
+
+.rs-logo a {
+    display: inherit;
+    height: inherit;
+}
+
+.footer__description{
+    font-family: Sansus Webissimo;
+    letter-spacing: 0.6px;
+    font-size: 18px;
+    color: gray;
+    text-align: right;
+}
+
+.footer__description a{    
+    color: gray;
+}
+
+.btn-flip {
+    background-image: url('./assets/img/btn-flip.jpg');
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    margin-left: 265px;
+    cursor: pointer;
+    transition: 0.2s;
+    outline: none;
+}
+
+.btn-flip:hover{
+    transform: rotate(180deg);
+    transition: 0.2s;
+}
+
+.btn-start , .btn-repeat, .btn-reset, .btn-diff-words {
+    position: relative;
+    width: 200px;
+    font-weight: bold;
+    background-color: transparent;
+    border: 3px solid green;
+    border-radius: 15px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    visibility: hidden;
+    cursor: pointer;
+    background-image: linear-gradient(45deg,green 50%, transparent 50%);
+    background-position: 100%;
+    background-size: 400%;
+    transition: background 300ms ease-in-out;
+    outline: none;
+}
+
+.btn-reset, .btn-diff-words{
+    visibility: visible;
+    border-radius: 30px;
+    border: 3px solid orangered;
+    background-image: linear-gradient(45deg,orangered 50%, transparent 50%);
+}
+
+.btn-repeat {
+    border: 3px solid orangered;
+    background-image: linear-gradient(45deg,orangered 50%, transparent 50%);
+}
+
+.btn-start:hover, .btn-repeat:hover, .btn-reset:hover, .btn-diff-words:hover{
+    background-position: 0;
+    color:white
+}
+
+.btn__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cards__wrapper h2 {
+    color: orangered;
+    font-family: Sansus Webissimo;
+    font-size: 40px;
+    letter-spacing: 1.5px;
+}
+
+.statistics__wrapper {
+    display: none;
+    width: 90%;
+    margin-bottom: 20px;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+    border: 2px solid #24943A;
+    border-collapse: collapse;
+}
+td, th {
+    border-bottom: 1px solid #24943A;
+    border-left: 1px solid #007700;
+    padding: 3px 2px;
+    white-space: nowrap;
+}
+thead {
+    background: #008000;
+    background: linear-gradient(to bottom, #40a040 0%, #198c19 66%, #008000 100%);
+}
+thead th {
+    font-size: 19px;
+    font-family:sans-serif;
+    font-size: 25px;
+    color: #FFFFFF;
+    text-align: center;
+    border-left: 2px solid #007700;
+    cursor: pointer;
+  }
+
+  thead th:first-child {
+    border-left: none;
+  }
+
+  td{
+      padding: 7px;
+      font-size: 23px;
+  }
+@media only screen and (max-width: 1289px) {    
+    .cards__wrapper {
+        width: 630px;
+    }
+}
+
+@media only screen and (max-width: 767px) {    
+    .cards__wrapper {
+        width: 300px;
+    }
+    .title {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .statistics__wrapper{
+        overflow-x: scroll;
+    }
+}
+
+th.sorted {
+    position: relative;
+}
+
+th.sorted::after{
+    right: 8px;
+    position: absolute;
+}
+
+th.sorted.increase::after {
+	content: "▲"
+}
+
+th.sorted.decrease::after {
+	content: "▼"
+}
